@@ -14,13 +14,12 @@ jobs:
         with:
           persist-credentials: false
 
-      # 构建
-      - name: Build
-        env:
-          # 注意在 Settings->Secrets 配置 VSSUE_CLIENT_ID : OAuth Apps
-          VSSUEID: ${{ secrets.VSSUE_CLIENT_ID }}
-          VSSUESECRET: ${{ secrets.VSSUE_CLIENT_SECRET }}
-        run: hugo -t dream
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: latest
+      - name: Build 
+        run: hugo
 
       # 部署到分支
       - name: Deploy
@@ -31,7 +30,7 @@ jobs:
           # 需要部署的分支
           BRANCH: gh-pages
           # vue项目 build 目录
-          FOLDER: public
+          FOLDER: ./public
           
   # 同步 gitee 并 更新 giteepages
   sync-to-gitee:
