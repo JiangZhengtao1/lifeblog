@@ -2,7 +2,7 @@
 title: Me
 date: 2020-10-16T14:39:55+08:00
 lastmod: 2020-10-16T14:39:55+08:00
-draft: true
+draft: false
 ---
 
 Hello,welcome to my blog❤.
