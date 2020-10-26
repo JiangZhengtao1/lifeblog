@@ -17,7 +17,7 @@ jobs:
         with:
           hugo-version: latest
       - name: Build 
-        run: hugo -t dream
+        run: hugo
 
       # 部署到分支
       - name: Deploy
