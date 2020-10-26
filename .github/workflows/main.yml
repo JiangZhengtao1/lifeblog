@@ -17,7 +17,7 @@ jobs:
         with:
           hugo-version: latest
       - name: Build 
-        run: hugo
+        run: hugo -t dream
 
       # 部署到分支
       - name: Deploy
@@ -33,7 +33,7 @@ jobs:
   # 同步 gitee 并 更新 giteepages
   sync-to-gitee:
     needs: build-and-deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       # 克隆项目至 gitee
       - name: Sync to Gitee
